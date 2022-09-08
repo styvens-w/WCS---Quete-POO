@@ -15,7 +15,7 @@
 
 body {
     margin: 0;
-    background-image: url('../images/background.jpg');
+    background-image: url('../images/background.webp');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -50,8 +50,6 @@ hr {
     border: 0;
     height: 1px;
 }
-
-
 
 .folded-map {
     position: fixed;
