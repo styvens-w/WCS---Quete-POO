@@ -11,6 +11,7 @@
     --primary: #ea5846;
     --light: #f2eceb;
     --dark: #130706;
+    --transparent-dark: #130706EE;
 }
 
 body {
@@ -49,6 +50,16 @@ hr {
     opacity: 50%;
     border: 0;
     height: 1px;
+}
+
+.xdebug-var-dump {
+    background-color: var(--transparent-dark);
+    padding: var(--spacing);
+    border-radius: 4px;
+    color: var(--light);
+    margin: auto;
+    margin-block: var(--spacing);
+    width: 80%;
 }
 
 .folded-map {

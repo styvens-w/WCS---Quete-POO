@@ -1,3 +1,5 @@
+<!-- ⛔ DO NOT MODIFY THIS FILE ⛔-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +18,7 @@
     </header>
     <main>
         <div class="animals">
-            <?php foreach ($animals as $key => $animal) : ?>
+            <?php foreach ($animals ?? [] as $key => $animal) : ?>
                 <article>
                     <?php if(method_exists($animal, 'sayHello')) : ?> 
                     <div class="hello">
@@ -40,9 +42,6 @@
             <?php endforeach; ?>
         </div>
     </main>
-    <a class="folded-map" href="/area.php">
-        <img src="assets/images/folded_map.png" alt="map">
-    </a>
 </body>
 
 </html>
