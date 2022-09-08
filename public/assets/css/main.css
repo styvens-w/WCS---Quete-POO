@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Raleway:wght@100;300;400;500;700&display=swap');
+
+:root {
+    --spacing-sm: 0.5rem;
+    --spacing: 1rem;
+    --spacing2: 2rem;
+    --spacing3: 3rem;
+    --title-font: 'Mouse Memoirs', sans-serif;
+    --text-font: 'Raleway', sans-serif;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --primary: #ea5846;
+    --light: #f2eceb;
+    --dark: #130706;
+}
+
+body {
+    margin: 0;
+    background-image: url('../images/background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: var(--text-font);
+    color: var(--dark);
+    font-size: 1rem;
+    line-height: 150%;
+    perspective: 2000px;
+    position: relative;
+}
+
+header h1 {
+    font-size: 3rem;
+    padding: var(--spacing2);
+    text-align: center;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--primary);
+    font-family: var(--title-font);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+hr {
+    background-color: var(--light);
+    opacity: 50%;
+    border: 0;
+    height: 1px;
+}
+
+
+
+.folded-map {
+    position: fixed;
+    top: var(--spacing2);
+    right: var(--spacing2);
+    filter: drop-shadow(0 0 2px var(--light));
+    opacity: 0.6;
+    transition: 0.5s;
+    transform: rotate(-15deg) scale(0.8);
+}
+
+.folded-map:hover {
+    filter: drop-shadow(0 0 8px var(--light));
+    opacity: 1;
+    transform: rotate(-5deg);
+    z-index: 10;
+}
