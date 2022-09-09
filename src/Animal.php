@@ -2,8 +2,8 @@
 
 class Animal
 {
-    protected string $name;
-    protected float $size;
-    protected bool $carnivorous;
-    protected int $pawNumber;
+    public string $name;
+    public float $size;
+    public bool $carnivorous;
+    public int $pawNumber;
 }
