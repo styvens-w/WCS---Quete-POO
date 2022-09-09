@@ -5,11 +5,10 @@
 
 require __DIR__ . '/../src/Animal.php';
 
-// $animal1 = new Animal();
-// $animal2 = new Animal();
+$animal1 = new Animal();
+$animal2 = new Animal();
 
-// $animals = [$animal1, $animal2];
-
+$animals = [$animal1, $animal2];
 
 /***************************************/
 /***************************************/
