@@ -10,29 +10,27 @@ main > .animals {
 
 main > .animals article {
     --height: 470px;
-    padding: var(--spacing);
     background-color: #FFFFFFAA;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     backdrop-filter: blur(5px);
     padding: var(--spacing2);
-    min-height: var(--height);
     position: relative;
+    height: var(--height);
 }
 
 .animals article img {
-    max-width: var(--size);
     transition: 0.5s ease;
     filter: drop-shadow(2px 2px 6px var(--shadow));
+    max-width: calc(min(100%, var(--height)) - var(--spacing2));
 }
 .animals article:hover .hello {
     opacity: 1;
 }
 
 .animals article:hover img {
-    width: 100%;
+    width: calc(100% - var(--spacing2));
 }
 
 .hello {
@@ -61,10 +59,12 @@ main > .animals article {
 }
 
 .notice {
-    transform: translate(10%, 30%);
+    position:absolute;
+    bottom: calc(var(--spacing2) * -1);
+    right: calc(var(--spacing2) * -1);
     background-color: var(--primary);
     padding: var(--spacing);
-    width: calc(100% + var(--spacing2));
+    width: 100%;
     color: var(--light);
     box-shadow: 2px 2px 6px var(--shadow);
 }
@@ -120,3 +120,9 @@ main > .animals article {
     --icon : url('../images/ruler.png');
 }
 
+.iucn {
+    aspect-ratio: 1;
+    border:1px solid var(--light);
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+}

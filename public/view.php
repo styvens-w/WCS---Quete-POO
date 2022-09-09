@@ -20,23 +20,36 @@
         <div class="animals">
             <?php foreach ($animals ?? [] as $key => $animal) : ?>
                 <article>
-                    <?php if(method_exists($animal, 'sayHello')) : ?> 
-                    <div class="hello">
-                        <?= $animal->sayHello() ?>
-                    </div>
+                    <?php if (method_exists($animal, 'sayHello')) : ?>
+                        <div class="hello">
+                            <?= $animal->sayHello() ?>
+                        </div>
                     <?php endif; ?>
                     <div></div>
-                    <img class="animal-img" width="<?= method_exists($animal, 'getSize') ? $animal->getSize() : '100' . '%' ?>" src="assets/images/animals/<?= method_exists($animal, 'getName') ? $animal->getName() : 'undefined' . $key % 3 ?>.png" alt="">
+                    <img class="animal-img" width="<?= isset($animal->size) ? $animal->size : 100 ?>%" src="assets/images/animals/<?= isset($animal->name) ? $animal->name : 'undefined' . $key % 3 ?>.png" alt="">
                     <div class="notice">
                         <div class="title">
                             <h1>
-                                <?= method_exists($animal, 'getName') ? $animal->getName() : 'Undefined animal #' . ($key + 1) ?>
+                                <?= isset($animal->name) ? $animal->name : 'Undefined animal #' . ($key + 1) ?>
                             </h1>
-                            <?php if (method_exists($animal, 'isCarnivorous')) : ?>
-                                <div class="<?= $animal->isCarnivorous() ? 'carnivorous' : 'vegetarian' ?>"></div>
-                            <?php endif ?>
                         </div>
                         <hr />
+                        <ul class="infos">
+                            <li class="paw"><?= isset($animal->pawNumber) ? $animal->pawNumber . ' patte(s)' : 'undefined' ?></li>
+                            <li class="size"><?= isset($animal->size) ? $animal->size : 'undefined' ?></li>
+                            <?php if (isset($animal->carnivorous)) : ?>
+                                <li class="<?= $animal->carnivorous ? 'carnivorous' : 'vegetarian' ?>">
+                                    <?= $animal->carnivorous ? 'carnivorous' : 'vegetarian' ?>
+                                </li>
+                            <?php else : ?>
+                                <li class="vegetarian"> undefined </li>
+                            <?php endif; ?>
+                            <?php if (isset($animal->threatenedLevel)) : ?>
+                                <li class="iucn"><?= $animal->threatenedLevel ?></li>
+                                <?php endif; ?>
+
+
+                        </ul>
                     </div>
                 </article>
             <?php endforeach; ?>
