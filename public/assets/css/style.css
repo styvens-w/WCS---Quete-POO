@@ -2,6 +2,7 @@ main > .animals {
     --size: 250px;
     width: 75vw;
     margin: auto;
+    margin-top: var(--spacing2);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--size), 1fr));
     gap: var(--spacing3);

@@ -9,12 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Welcome to Wild Zoo</title>
+    <title>Welcome to the Wild Zoo</title>
 </head>
 
 <body>
     <header>
-        <h1>Welcome to Wild Zoo</h1>
+        <h1>Welcome to the Wild Zoo</h1>
     </header>
     <main>
         <div class="animals">

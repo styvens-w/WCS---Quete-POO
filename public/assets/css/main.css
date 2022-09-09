@@ -28,10 +28,55 @@ body {
     position: relative;
 }
 
+header {
+    transform-style: preserve-3d;
+    perspective: 1500px;
+}
+
 header h1 {
+    --swing: 8deg;
+    transform-style: preserve-3d;
     font-size: 3rem;
     padding: var(--spacing2);
     text-align: center;
+    background-color: var(--light);
+    box-shadow: 8px 8px 0 var(--primary);
+    width: fit-content;
+    margin: auto;
+    margin-top: var(--spacing2);
+    position: relative;
+    animation: swing 2s ease-in-out alternate backwards infinite;
+    transform-origin: center calc(var(--spacing3) * -1);
+}
+
+header h1::before, header h1::after {
+    content: "";
+    position: absolute;
+    height: var(--spacing3);
+    top: calc(var(--spacing3) * -1);
+    left: var(--spacing3);
+    width: 3px;
+    background-color: var(--dark);
+}
+
+
+header h1::after {
+    left: calc(100% - var(--spacing3));
+}
+
+header:hover h1 {
+    --swing:30deg;
+    filter: brightness(105%);
+}
+
+@keyframes swing {
+    0% {
+        transform: rotateX(var(--swing));
+    } 
+    100% {
+        transform: rotateX(calc(var(--swing) * -1));
+    }
+
 }
 
 h1,
