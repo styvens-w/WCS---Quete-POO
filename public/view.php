@@ -20,9 +20,9 @@
         <div class="animals">
             <?php foreach ($animals ?? [] as $key => $animal) : ?>
                 <article>
-                    <?php if (method_exists($animal, 'sayHello')) : ?>
+                    <?php if (method_exists($animal, 'speak')) : ?>
                         <div class="hello">
-                            <?= $animal->sayHello() ?>
+                            <?= $animal->speak() ?>
                         </div>
                     <?php endif; ?>
                     <div></div>
@@ -46,9 +46,12 @@
                             <?php endif; ?>
                             <?php if (isset($animal->threatenedLevel)) : ?>
                                 <li class="iucn"><?= $animal->threatenedLevel ?></li>
-                                <?php endif; ?>
-
-
+                            <?php endif; ?>
+                            <?php if (method_exists($animal, 'isDangerous')) : ?>
+                                <li class="<?= $animal->isDangerous() ? 'dangerous' : 'not-dangerous' ?>">
+                                    <?= $animal->isDangerous() ? 'Dangerous' : 'Not dangerous' ?>
+                                </li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </article>
