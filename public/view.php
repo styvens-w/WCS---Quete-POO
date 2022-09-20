@@ -26,27 +26,31 @@
                         </div>
                     <?php endif; ?>
                     <div></div>
-                    <img class="animal-img" width="<?= isset($animal->size) ? $animal->size : 100 ?>%" src="assets/images/animals/<?= isset($animal->name) ? $animal->name : 'undefined' . $key % 3 ?>.png" alt="">
+                    <img class="animal-img" width="<?= $animal->size ?? $animal->getSize() ?? 100 ?>%" src="assets/images/animals/<?= $animal->name ?? $animal->getName() ?? 'undefined' . $key % 3 ?>.png" alt="">
                     <div class="notice">
                         <div class="title">
                             <h1>
-                                <?= isset($animal->name) ? $animal->name : 'Undefined animal #' . ($key + 1) ?>
+                                <?= $animal->name ?? $animal->getName() ?? 'Undefined animal #' . ($key + 1) ?>
                             </h1>
                         </div>
                         <hr />
                         <ul class="infos">
-                            <li class="paw"><?= isset($animal->pawNumber) ? $animal->pawNumber . ' patte(s)' : 'undefined' ?></li>
-                            <li class="size"><?= isset($animal->size) ? $animal->size : 'undefined' ?></li>
+                            <li class="paw"><?= $animal->pawNumber ?? $animal->getPawNumber() ?? 'undefined' ?></li>
+                            <li class="size">
+                                <?= $animal->size ?? $animal->getSize() ?? 'undefined' ?>
+                            </li>
                             <?php if (isset($animal->carnivorous)) : ?>
                                 <li class="<?= $animal->carnivorous ? 'carnivorous' : 'vegetarian' ?>">
                                     <?= $animal->carnivorous ? 'carnivorous' : 'vegetarian' ?>
                                 </li>
+                            <?php elseif (method_exists($animal, 'isCarnivorous')) : ?>
+                                <li class="<?= $animal->isCarnivorous() ? 'carnivorous' : 'vegetarian' ?>">
+                                    <?= $animal->isCarnivorous() ? 'carnivorous' : 'vegetarian' ?>
+                                </li>
                             <?php else : ?>
                                 <li class="vegetarian"> undefined </li>
                             <?php endif; ?>
-                            <?php if (isset($animal->threatenedLevel)) : ?>
-                                <li class="iucn"><?= $animal->threatenedLevel ?></li>
-                            <?php endif; ?>
+                            <li class="iucn"><?= $animal->threatenedLevel ?? $animal->getThreatenedLevel() ?></li>
                             <?php if (method_exists($animal, 'isDangerous')) : ?>
                                 <li class="<?= $animal->isDangerous() ? 'dangerous' : 'not-dangerous' ?>">
                                     <?= $animal->isDangerous() ? 'Dangerous' : 'Not dangerous' ?>
