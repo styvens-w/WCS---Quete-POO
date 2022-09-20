@@ -15,7 +15,6 @@ $lion->threatenedLevel = 'VU';
 $parrot = new Animal();
 $parrot->name = 'parrot';
 $parrot->pawNumber = 2;
-$parrot->carnivorous = true;
 $parrot->size = 30;
 
 $elephant = new Animal();
