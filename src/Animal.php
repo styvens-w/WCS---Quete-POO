@@ -66,7 +66,7 @@ class Animal
         $this->carnivorous = $carnivorous;
     }
 
-    public function speak($lang = 'fr'): string
+    public function speak(string $lang = 'fr'): string
     {
         if ($lang === 'fr') {
             $message = 'Bienvenue au zoo, je suis un ';
