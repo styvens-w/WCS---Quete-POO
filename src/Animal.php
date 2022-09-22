@@ -8,7 +8,7 @@ class Animal
     public int $pawNumber;
     public string $threatenedLevel = 'NE';
 
-    public function speak($lang = 'fr'): string
+    public function speak(string $lang = 'fr'): string
     {
         if ($lang === 'fr') {
             $message = 'Bienvenue au zoo, je suis un ';
