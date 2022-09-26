@@ -26,7 +26,7 @@
                         </div>
                     <?php endif; ?>
                     <div></div>
-                    <img class="animal-img" width="<?= $animal->size ?? $animal->getSize() ?? 100 ?>%" src="assets/images/animals/<?= $animal->name ?? $animal->getName() ?? 'undefined' . $key % 3 ?>.png" alt="">
+                    <img class="animal-img" width="<?= $animal->getSize() ?? 100 ?>%" src="assets/images/animals/<?= $animal->name ?? $animal->getName() ?? 'undefined' . $key % 3 ?>.png" alt="">
                     <div class="notice">
                         <div class="title">
                             <h1>
@@ -37,7 +37,7 @@
                         <ul class="infos">
                             <li class="paw"><?= $animal->pawNumber ?? $animal->getPawNumber() ?? 'undefined' ?></li>
                             <li class="size">
-                                <?= $animal->size ?? $animal->getSize() ?? 'undefined' ?>
+                                <?= method_exists($animal, 'getSizeWithUnit') ? $animal->getSizeWithUnit() : $animal->getSize()  ?>
                             </li>
                             <?php if (isset($animal->carnivorous)) : ?>
                                 <li class="<?= $animal->carnivorous ? 'carnivorous' : 'vegetarian' ?>">
