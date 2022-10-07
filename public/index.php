@@ -4,6 +4,8 @@
 /******** ⚠️ WORK HERE ONLY ⚠️ ***********/
 
 require __DIR__ . '/../src/Animal.php';
+require 'src/Other/Animal.php';
+
 $lion = new Animal('lion', 4);
 $lion->setCarnivorous(true);
 $lion->setSize(70);
