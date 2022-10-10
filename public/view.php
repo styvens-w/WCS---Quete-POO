@@ -37,7 +37,7 @@
                         <ul class="infos">
                             <li class="paw"><?= $animal->pawNumber ?? $animal->getPawNumber() ?? 'undefined' ?></li>
                             <li class="size">
-                                <?= $animal->size ?? $animal->getSize() ?? 'undefined' ?>
+                                <?= method_exists($animal, 'getSizeWithUnit') ? $animal->getSizeWithUnit() : $animal->getSize()  ?>
                             </li>
                             <?php if (isset($animal->carnivorous)) : ?>
                                 <li class="<?= $animal->carnivorous ? 'carnivorous' : 'vegetarian' ?>">
