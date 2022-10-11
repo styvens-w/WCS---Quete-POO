@@ -131,3 +131,22 @@ main > .animals article {
     padding: var(--spacing-sm);
     border-radius: 50%;
 }
+
+.parents {
+    display: flex;
+    flex-direction: column-reverse;
+    position: absolute;
+    align-items: center;
+    top: 0;
+    right: 0;
+    margin: var(--spacing);
+    padding: var(--spacing);
+    background-color: var(--primary-light);
+    border:1px solid var(--primary);
+    border-radius: 4px;
+}
+
+
+.parents div:first-child {
+    font-weight: bold;
+}
