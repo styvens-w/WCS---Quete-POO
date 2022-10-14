@@ -140,7 +140,7 @@ main > .animals article {
     top: 0;
     right: 0;
     margin: var(--spacing);
-    padding: var(--spacing);
+    padding: var(--spacing-sm);
     background-color: var(--primary-light);
     border:1px solid var(--primary);
     border-radius: 4px;

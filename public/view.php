@@ -39,10 +39,17 @@ $areaType = $_GET['area'] ?? '';
                 <article>
                     <aside>
                         <div class="parents">
-                            <div><?= preg_replace('/.+\\\(.+)$/', '\1', get_class($animal)) ?></div>
+                            <?php $reflection = new ReflectionClass($animal); ?>
+                            <div>
+                                <?= $reflection->isFinal() ? '🚫' : '' ?>
+                                <?= preg_replace('/.+\\\(.+)$/', '\1', get_class($animal)) ?>
+                            </div>
                             <?php foreach (class_parents($animal) ?? [] as $parent) : ?>
                                 <div>↓</div>
-                                <div><?= preg_replace('/.+\\\(.+)$/', '\1', $parent) ?></div>
+                                <div>
+                                    
+                                    <?= preg_replace('/.+\\\(.+)$/', '\1', $parent) ?>
+                                </div>
                             <?php endforeach; ?>
                         </div>
                     </aside> <?php if (method_exists($animal, 'speak')) : ?>
