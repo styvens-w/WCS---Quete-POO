@@ -8,9 +8,9 @@ class Animal
     public const SIZE_UNIT_CHANGE_LIMIT = 100;
     public const THREATENED_LEVELS = ['NE', 'DD', 'LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX',];
     
-    private string $name;
+    protected string $name;
     private float $size = 100;
-    private bool $carnivorous = false;
+    protected bool $carnivorous = false;
     private int $pawNumber;
     private string $threatenedLevel = 'NE';
 
