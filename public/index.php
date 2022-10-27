@@ -1,33 +1,20 @@
 <?php
 
+require '../vendor/autoload.php';
+
 /***************************************/
 /******** ⚠️ WORK HERE ONLY ⚠️ ***********/
 
-require __DIR__ . '/../src/Animal.php';
-require __DIR__ . '/../src/Area.php';
-require __DIR__ . '/../src/Mammal.php';
-require __DIR__ . '/../src/Equid.php';
-require __DIR__ . '/../src/Arthropode.php';
-require __DIR__ . '/../src/Arachnide.php';
-require __DIR__ . '/../src/Insect.php';
-require __DIR__ . '/../src/Spider.php';
-require __DIR__ . '/../src/Bird.php';
-require __DIR__ . '/../src/Reptile.php';
-require __DIR__ . '/../src/Crocodilian.php';
-require __DIR__ . '/../src/Snake.php';
-require __DIR__ . '/../src/Felid.php';
-
 use App\Area;
-use App\Animal;
-use App\Arachnide;
-use App\Bird;
-use App\Crocodilian;
-use App\Equid;
-use App\Felid;
-use App\Insect;
-use App\Mammal;
-use App\Snake;
-use App\Spider;
+use App\Animal\Arachnide;
+use App\Animal\Bird;
+use App\Animal\Crocodilian;
+use App\Animal\Equid;
+use App\Animal\Felid;
+use App\Animal\Insect;
+use App\Animal\Mammal;
+use App\Animal\Snake;
+use App\Animal\Spider;
 
 $elephant = new Mammal('elephant');
 $elephant->setThreatenedLevel('LC');

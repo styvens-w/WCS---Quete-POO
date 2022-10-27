@@ -1,8 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Animal;
 
-final class Crocodilian extends Reptile
+use App\Swimmable;
+
+final class Crocodilian extends Reptile implements Swimmable
 {
     private int $pawNumber = 4;
     protected bool $carnivorous = true;
@@ -10,5 +12,10 @@ final class Crocodilian extends Reptile
     public function __construct(string $name)
     {
         parent::__construct($name, $this->pawNumber);
+    }
+
+    public function swim(): string
+    {
+        return 'I can swim in rivers';
     }
 }
