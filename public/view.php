@@ -3,6 +3,7 @@
 <?php
 
 use App\Area;
+use App\Swimmable;
 
 $areaType = $_GET['area'] ?? '';
 ?>
@@ -25,10 +26,10 @@ $areaType = $_GET['area'] ?? '';
         <h1>Welcome to the Wild Zoo</h1>
     </header>
     <main>
-
         <?php include 'map.php'; ?>
 
         <h2><?= $areaType ?></h2>
+        <input id="swimmable" type="checkbox">
         <div class="animals">
             <?php if (isset(${$areaType}) && ${$areaType} instanceof Area && method_exists($area, 'getAnimals')) {
                 $animals = ${$areaType}->getAnimals();
@@ -47,7 +48,7 @@ $areaType = $_GET['area'] ?? '';
                             <?php foreach (class_parents($animal) ?? [] as $parent) : ?>
                                 <div>↓</div>
                                 <div>
-                                    
+
                                     <?= preg_replace('/.+\\\(.+)$/', '\1', $parent) ?>
                                 </div>
                             <?php endforeach; ?>
@@ -58,7 +59,7 @@ $areaType = $_GET['area'] ?? '';
                         </div>
                     <?php endif; ?>
                     <div></div>
-                    <img class="animal-img" width="<?= $animal->getSize() ?? 100 ?>%" src="assets/images/animals/<?= $animal->name ?? $animal->getName() ?? 'undefined' . $key % 3 ?>.png" alt="">
+                    <img class="animal-img <?= $animal instanceof Swimmable ? 'swim' : 'no-swim' ?>" width="<?= $animal->getSize() ?? 100 ?>%" src="assets/images/animals/<?= $animal->name ?? $animal->getName() ?? 'undefined' . $key % 3 ?>.png" alt="">
                     <div class="notice">
                         <div class="title">
                             <h1>
