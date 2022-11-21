@@ -2,6 +2,9 @@
 
 require '../vendor/autoload.php';
 
+/***************************************/
+/******** ⚠️ WORK HERE ONLY ⚠️ ***********/
+
 use App\Area;
 use App\Arachnide;
 use App\Bird;
