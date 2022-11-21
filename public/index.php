@@ -1,24 +1,11 @@
 <?php
 
+require '../vendor/autoload.php';
+
 /***************************************/
 /******** ⚠️ WORK HERE ONLY ⚠️ ***********/
 
-require __DIR__ . '/../src/Animal.php';
-require __DIR__ . '/../src/Area.php';
-require __DIR__ . '/../src/Mammal.php';
-require __DIR__ . '/../src/Equid.php';
-require __DIR__ . '/../src/Arthropode.php';
-require __DIR__ . '/../src/Arachnide.php';
-require __DIR__ . '/../src/Insect.php';
-require __DIR__ . '/../src/Spider.php';
-require __DIR__ . '/../src/Bird.php';
-require __DIR__ . '/../src/Reptile.php';
-require __DIR__ . '/../src/Crocodilian.php';
-require __DIR__ . '/../src/Snake.php';
-require __DIR__ . '/../src/Felid.php';
-
 use App\Area;
-use App\Animal;
 use App\Arachnide;
 use App\Bird;
 use App\Crocodilian;
