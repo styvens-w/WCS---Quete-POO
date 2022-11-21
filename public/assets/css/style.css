@@ -150,3 +150,52 @@ main > .animals article {
 .parents div:first-child {
     font-weight: bold;
 }
+
+.errors {
+    --errors-width: 1000px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: var(--spacing2);
+    transform: rotate(-2deg);
+    padding: var(--spacing2);
+    width: var(--errors-width);
+    aspect-ratio: 2/1;
+    background-color: var(--light);
+    box-shadow: 15px 15px 0 var(--primary);
+    color: var(--primary);
+    font-size: 80px;
+    line-height: 125%;
+    left:calc(50% - var(--errors-width) / 2);
+    top: 250px;
+    z-index: 10;
+    list-style: none;
+}
+
+.errors ~ .animals {
+    filter: grayscale(100%) blur(4px);
+}
+
+.errors img {
+    width: 80px;
+}
+
+.small-errors {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing2);
+    padding: var(--spacing2);
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--light);
+    box-shadow: 5px 5px 0 var(--primary);
+    color: var(--primary);
+    font-size: 25px;
+    inset: var(--spacing);
+    z-index: 10;
+    list-style: none;
+}

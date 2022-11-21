@@ -30,11 +30,25 @@ use App\Snake;
 use App\Spider;
 
 $elephant = new Mammal('elephant');
-$elephant->setThreatenedLevel('LC');
+try{
+    $elephant->setThreatenedLevel('EX');
+} catch(UnexpectedValueException $exception) {
+    $errors[]  = $exception->getMessage();
+} catch (RuntimeException $exception) {
+    $smallErrors[]  = $exception->getMessage();
+}
+
 $elephant->setSize(400);
 
 $lion = new Felid('lion');
-$lion->setSize(100);
+try {
+    $lion->setSize(20000);
+} catch (RangeException $exception) {
+    $smallErrors[]  = $exception->getMessage();
+} catch (Exception $exception) {
+    $errors[]  = $exception->getMessage();
+}
+
 $lion->setThreatenedLevel('VU');
 
 $tiger = new Felid('tiger');

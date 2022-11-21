@@ -2,12 +2,17 @@
 
 namespace App;
 
+use Exception;
+use RangeException;
+use RuntimeException;
+use UnexpectedValueException;
+
 class Animal
 {
     public const CENTIMETERS_IN_METER = 100;
     public const SIZE_UNIT_CHANGE_LIMIT = 100;
     public const THREATENED_LEVELS = ['NE', 'DD', 'LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX',];
-    
+
     protected string $name;
     private float $size = 100;
     protected bool $carnivorous = false;
@@ -33,7 +38,10 @@ class Animal
     public function setSize(float $size): void
     {
         if ($size < 0) {
-            $size = 0;
+            throw new Exception('The size should be a positive number');
+        }
+        if($size > 10000) {
+            throw new RangeException('The ' . $this->getName() . ' is too large');  
         }
 
         $this->size = $size;
@@ -59,9 +67,15 @@ class Animal
 
     public function setThreatenedLevel(string $threatenedLevel = 'NE'): void
     {
-        if (in_array($threatenedLevel, self::THREATENED_LEVELS)) {
-            $this->threatenedLevel = $threatenedLevel;
+        if (!in_array($threatenedLevel, self::THREATENED_LEVELS)) {
+            throw new UnexpectedValueException('La menace est incorrecte');
         }
+
+        if($threatenedLevel == 'EX') {
+            throw new RuntimeException('Le ' . $this->getName() . ' ne peut être là, cette espèce est éteinte');
+        }
+
+        $this->threatenedLevel = $threatenedLevel;
     }
 
     public function isCarnivorous(): bool
