@@ -18,7 +18,7 @@ use App\Spider;
 
 $elephant = new Mammal('elephant');
 try{
-    $elephant->setThreatenedLevel('VU');
+    $elephant->setThreatenedLevel('LC');
 } catch(UnexpectedValueException $exception) {
     $errors[]  = $exception->getMessage();
 } catch (RuntimeException $exception) {
