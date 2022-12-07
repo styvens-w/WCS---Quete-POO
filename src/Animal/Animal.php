@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Animal;
 
 use Exception;
 use RangeException;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Animal;
 
-class Bird extends Animal
+class Insect extends Arthropode
 {
-    private int $pawNumber = 2;
+    private int $pawNumber = 6;
     
     public function __construct(string $name)
     {

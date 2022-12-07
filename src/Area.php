@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Animal\Animal;
+
 class Area
 {
     private string $name;

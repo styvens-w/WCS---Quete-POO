@@ -6,15 +6,15 @@ require '../vendor/autoload.php';
 /******** ⚠️ WORK HERE ONLY ⚠️ ***********/
 
 use App\Area;
-use App\Arachnide;
-use App\Bird;
-use App\Crocodilian;
-use App\Equid;
-use App\Felid;
-use App\Insect;
-use App\Mammal;
-use App\Snake;
-use App\Spider;
+use App\Animal\Arachnide;
+use App\Animal\Bird;
+use App\Animal\Crocodilian;
+use App\Animal\Equid;
+use App\Animal\Felid;
+use App\Animal\Insect;
+use App\Animal\Mammal;
+use App\Animal\Snake;
+use App\Animal\Spider;
 
 $elephant = new Mammal('elephant');
 try{

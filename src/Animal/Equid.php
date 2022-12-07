@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Animal;
 
 final class Equid extends Mammal
 {
