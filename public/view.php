@@ -55,6 +55,7 @@ $areaType = $_GET['area'] ?? '';
         <?php endif; ?>
 
         <h2><?= $areaType ?></h2>
+        <?php if (interface_exists(Swimmable::class)) : ?>
         <input id="swimmable" type="checkbox">
         <label class="btn swim-label" for="swimmable">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-water" viewBox="0 0 16 16">
@@ -62,6 +63,7 @@ $areaType = $_GET['area'] ?? '';
             </svg>
             Try to swim
         </label>
+        <?php endif ?>
         <div class="animals">
             <?php if (isset(${$areaType}) && ${$areaType} instanceof Area && method_exists($area, 'getAnimals')) {
                 $animals = ${$areaType}->getAnimals();
