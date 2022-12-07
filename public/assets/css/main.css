@@ -116,3 +116,16 @@ hr {
     width: 80%;
 }
 
+.btn {
+    padding: var(--spacing);
+    background-color: var(--primary);
+    border-radius: 4px;
+    color: var(--light);
+    filter: brightness(var(--brightness, 100%));
+}
+.btn:hover {
+    --brightness: 110%;
+}
+.btn:active {
+    --brightness: 90%;
+}

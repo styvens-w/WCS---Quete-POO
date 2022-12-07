@@ -159,6 +159,10 @@ main>.animals article {
     font-weight: bold;
 }
 
+#swimmable { 
+    display: none;
+}
+
 #swimmable:checked ~ .animals article::after {
     content: '';
     position: absolute;
@@ -184,6 +188,15 @@ main>.animals article {
 
 #swimmable:checked ~ .animals article .swim {
     animation: swim linear 1s 1s infinite alternate;
+}
+
+#swimmable:checked + label {
+    --brightness: 130%;
+    box-shadow: 0 0 6px 4px var(--light);
+}
+
+.swim-label {
+    margin: var(--spacing2);
 }
 
 @keyframes fill {
