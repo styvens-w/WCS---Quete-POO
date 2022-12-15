@@ -266,3 +266,30 @@ main>.animals article {
     list-style: none;
 }
 
+.draggable {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+    padding: var(--spacing);
+    right: 0;
+    top: 25%;
+    background-color: var(--light);
+}
+
+.drag {
+    background-color: var(--primary-light);
+}
+
+.dragenter {
+    filter:brightness(150%);
+}
+
+.draggable div {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+}

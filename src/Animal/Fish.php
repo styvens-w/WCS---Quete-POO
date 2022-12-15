@@ -2,7 +2,12 @@
 
 namespace App\Animal;
 
-class Fish extends Animal 
+use Swimmable;
+
+class Fish extends Animal implements Swimmable
 {
-    
+    public function swim(): string
+    {
+        return 'je nage graçe à mes nageoires';
+    }
 }

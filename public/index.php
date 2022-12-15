@@ -5,7 +5,8 @@ require '../vendor/autoload.php';
 /***************************************/
 /******** ⚠️ WORK HERE ONLY ⚠️ ***********/
 
-use App\Area;
+use App\Area\Area;
+use App\Area\Aquarium;
 use App\Animal\Arachnide;
 use App\Animal\Bird;
 use App\Animal\Crocodilian;
@@ -15,6 +16,8 @@ use App\Animal\Insect;
 use App\Animal\Mammal;
 use App\Animal\Snake;
 use App\Animal\Spider;
+use App\Area\Desert;
+use App\Area\Jungle;
 
 $elephant = new Mammal('elephant');
 try{
@@ -67,22 +70,27 @@ $bee->setSize(2);
 
 $animals = [$elephant, $lion, $tiger, $zebra, $parrot, $alligator, $python, $scorpio, $tarentula, $bee];
 
-$savana = new Area('savana');
-$savana->addAnimal($lion);
-$savana->addAnimal($elephant);
-$savana->addAnimal($zebra);
-
-$jungle = new Area('jungle');
+// $savana = new Area('savana');
+// $savana->addAnimal($lion);
+// $savana->addAnimal($elephant);
+// $savana->addAnimal($zebra);
+try {
+$jungle = new Jungle('jungle');
 $jungle->addAnimal($parrot);
 $jungle->addAnimal($alligator);
 $jungle->addAnimal($tarentula);
 $jungle->addAnimal($tiger);
 
-$desert = new Area('desert');
+$desert = new Desert('desert');
 $desert->addAnimal($scorpio);
 
-$areas = [$savana, $jungle, $desert];
+$aquarium = new Aquarium('aquarium');
+$aquarium->addAnimal($alligator);
 
+$areas = [$aquarium, $jungle, $desert];
+} catch(Exception $exception) {
+    $errors[] = $exception->getMessage();
+}
 /***************************************/
 /***************************************/
 

@@ -1,6 +1,6 @@
 <?php
 
-use App\Area;
+use App\Area\Area;
 
 if (!empty($areas) && class_exists(Area::class)) : ?>
     <input hidden type="checkbox" id="folded-map">
@@ -17,9 +17,9 @@ if (!empty($areas) && class_exists(Area::class)) : ?>
                     <?php if (method_exists($area, 'getName')) : ?>
                         <?php if ($key % 3 === $i) : ?>
                             <div class="plan-area">
-                                <img src="assets/images/areas/<?= $area->getName() ?>.png" alt="">
+                                <img src="assets/images/areas/<?= $area->getName() ?>.png" alt="" >
                                 <?php if (method_exists($area, 'getAnimals') && !empty($area->getAnimals())) : ?>
-                                    <a class="area-name" href="?area=<?= $area->getName() ?>"><?= $area->getName() ?></a>
+                                    <a id="area$i" data-name="<?= $area->getName() ?>" class="area-name" href="?area=<?= $area->getName() ?>"><?= $area->getName() ?></a>
                                 <?php else : ?>
                                     <?= $area->getName() ?>
                                 <?php endif; ?>
@@ -31,3 +31,9 @@ if (!empty($areas) && class_exists(Area::class)) : ?>
         <?php endfor; ?>
     </div>
 <?php endif; ?>
+
+<div class="draggable">
+    <?php foreach ($animals as $animal) : ?>
+      <div><?= $animal->getName() ?></div>
+    <?php endforeach ?>
+</div>

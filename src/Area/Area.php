@@ -1,10 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Area;
 
 use App\Animal\Animal;
+use Exception;
 
-class Area
+abstract class Area
 {
     private string $name;
     private array $animals = [];
@@ -26,6 +27,13 @@ class Area
 
     public function addAnimal(Animal $animal)
     {
+        if (!$this->isValid($animal)) {
+            throw new Exception('impossible d\'ajouter cet animal');
+        }
+        
         $this->animals[] = $animal;
+        
     }
+
+    abstract protected function isValid($animal);
 }
