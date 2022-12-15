@@ -116,3 +116,22 @@ hr {
     width: 80%;
 }
 
+.back {
+    background-color: var(--primary-light);
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--primary);
+    padding-inline: var(--spacing);
+    padding-block: var(--spacing-sm);
+    vertical-align: middle;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.back:hover {
+    filter: brightness(110%);
+}
+
+.back:active {
+    filter: brightness(90%);
+}
