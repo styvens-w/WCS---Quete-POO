@@ -3,9 +3,8 @@
 namespace App\Area;
 
 use App\Animal\Animal;
-use Exception;
 
-abstract class Area
+class Area
 {
     private string $name;
     private array $animals = [];

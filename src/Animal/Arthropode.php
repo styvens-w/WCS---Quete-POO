@@ -2,7 +2,7 @@
 
 namespace App\Animal;
 
-abstract class Arthropode extends Animal
+class Arthropode extends Animal
 {
 
 }
