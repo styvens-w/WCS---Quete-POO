@@ -266,7 +266,7 @@ main>.animals article {
     list-style: none;
 }
 
-.draggable {
+.selectionnable {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -275,21 +275,18 @@ main>.animals article {
     gap: var(--spacing-sm);
     padding: var(--spacing);
     right: 0;
-    top: 25%;
+    top: 35%;
     background-color: var(--light);
 }
 
-.drag {
-    background-color: var(--primary-light);
-}
-
-.dragenter {
-    filter:brightness(150%);
-}
-
-.draggable div {
-    border: 1px solid var(--primary);
-    color: var(--primary);
+.selectionnable div {
+    --select-color: var(--primary);
+    border: 1px solid var(--select-color);
+    color: var(--select-color);
     padding: var(--spacing-sm);
     border-radius: 4px;
+}
+
+.selectionnable .is-selectionnable {
+    --select-color: green;
 }

@@ -3,7 +3,6 @@
 <?php
 
 use App\Area\Area;
-use App\Swimmable;
 
 $areaType = $_GET['area'] ?? '';
 ?>
@@ -76,10 +75,18 @@ $areaType = $_GET['area'] ?? '';
         <?php endif ?>
 
         <div class="animals">
-            <?php if (isset(${$areaType}) && ${$areaType} instanceof Area && method_exists($area, 'getAnimals')) {
-                $animals = ${$areaType}->getAnimals();
-            }
-            ?>
+            <?php if (isset(${$areaType}) && ${$areaType} instanceof Area && method_exists(${$areaType}, 'getAnimals')) : ?>
+                <?php if (method_exists(${$areaType}, 'isValid')) : ?>
+                    <div class="selectionnable">
+                        <?php foreach ($animals as $animal) : ?>
+                            <div class="<?= ${$areaType}->isValid($animal) ? 'is-selectionnable' : '' ?>">
+                                <?= $animal->getName() ?>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
+                <?php endif; ?>
+                <?php $animals = ${$areaType}->getAnimals(); ?>
+            <?php endif; ?>
             <?php foreach ($animals ?? [] as $key => $animal) : ?>
 
                 <article>

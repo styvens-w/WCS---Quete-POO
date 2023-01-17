@@ -32,8 +32,4 @@ if (!empty($areas) && class_exists(Area::class)) : ?>
     </div>
 <?php endif; ?>
 
-<div class="draggable">
-    <?php foreach ($animals as $animal) : ?>
-      <div><?= $animal->getName() ?></div>
-    <?php endforeach ?>
-</div>
+

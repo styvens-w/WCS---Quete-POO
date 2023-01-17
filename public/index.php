@@ -5,24 +5,28 @@ require '../vendor/autoload.php';
 /***************************************/
 /******** ⚠️ WORK HERE ONLY ⚠️ ***********/
 
+use App\Area\Box;
 use App\Area\Area;
-use App\Area\Aquarium;
-use App\Animal\Arachnide;
+use App\Area\Cage;
 use App\Animal\Bird;
-use App\Animal\Crocodilian;
-use App\Animal\Equid;
-use App\Animal\Felid;
-use App\Animal\Insect;
-use App\Animal\Mammal;
-use App\Animal\Snake;
-use App\Animal\Spider;
 use App\Area\Desert;
 use App\Area\Jungle;
+use App\Animal\Equid;
+use App\Animal\Felid;
+use App\Animal\Snake;
+use App\Animal\Animal;
+use App\Animal\Insect;
+use App\Animal\Mammal;
+use App\Animal\Spider;
+use App\Area\Aquarium;
+use App\Animal\Arachnide;
+use App\Animal\Crocodilian;
+use App\Animal\Fish;
 
 $elephant = new Mammal('elephant');
-try{
+try {
     $elephant->setThreatenedLevel('LC');
-} catch(UnexpectedValueException $exception) {
+} catch (UnexpectedValueException $exception) {
     $errors[]  = $exception->getMessage();
 } catch (RuntimeException $exception) {
     $smallErrors[]  = $exception->getMessage();
@@ -70,27 +74,24 @@ $bee->setSize(2);
 
 $animals = [$elephant, $lion, $tiger, $zebra, $parrot, $alligator, $python, $scorpio, $tarentula, $bee];
 
-// $savana = new Area('savana');
-// $savana->addAnimal($lion);
-// $savana->addAnimal($elephant);
-// $savana->addAnimal($zebra);
 try {
-$jungle = new Jungle('jungle');
-$jungle->addAnimal($parrot);
-$jungle->addAnimal($alligator);
-$jungle->addAnimal($tarentula);
-$jungle->addAnimal($tiger);
+    $jungle = new Jungle('jungle');
+    $jungle->addAnimal($parrot);
+    $jungle->addAnimal($alligator);
+    $jungle->addAnimal($tarentula);
+    $jungle->addAnimal($tiger);
 
-$desert = new Desert('desert');
-$desert->addAnimal($scorpio);
+    $desert = new Desert('desert');
+    $desert->addAnimal($scorpio);
 
-$aquarium = new Aquarium('aquarium');
-$aquarium->addAnimal($alligator);
+    $aquarium = new Aquarium('aquarium');
+    $aquarium->addAnimal($alligator);
 
-$areas = [$aquarium, $jungle, $desert];
-} catch(Exception $exception) {
+    $areas = [$aquarium, $jungle, $desert];
+} catch (Exception $exception) {
     $errors[] = $exception->getMessage();
 }
+
 /***************************************/
 /***************************************/
 

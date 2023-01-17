@@ -2,12 +2,12 @@
 
 namespace App\Animal;
 
-use Swimmable;
-
-class Fish extends Animal implements Swimmable
+class Fish extends Animal
 {
-    public function swim(): string
+    private int $pawNumber = 0;
+    
+    public function __construct(string $name)
     {
-        return 'je nage graçe à mes nageoires';
+        parent::__construct($name, $this->pawNumber);
     }
 }

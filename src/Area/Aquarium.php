@@ -2,12 +2,9 @@
 
 namespace App\Area;
 
-use App\Swimmable;
+use App\Animal\Animal;
+use App\Animal\Fish;
 
 class Aquarium extends Area
 {
-    protected function isValid($animal) 
-    {
-        return $animal instanceof Swimmable;
-    }
 }
