@@ -5,9 +5,6 @@ require '../vendor/autoload.php';
 /***************************************/
 /******** ⚠️ WORK HERE ONLY ⚠️ ***********/
 
-use App\Area\Box;
-use App\Area\Area;
-use App\Area\Cage;
 use App\Animal\Bird;
 use App\Area\Desert;
 use App\Area\Jungle;
@@ -21,7 +18,8 @@ use App\Animal\Spider;
 use App\Area\Aquarium;
 use App\Animal\Arachnide;
 use App\Animal\Crocodilian;
-use App\Animal\Fish;
+
+$abstractAnimal = new Animal('abstract', 0);
 
 $elephant = new Mammal('elephant');
 try {
@@ -72,7 +70,7 @@ $scorpio->setCarnivorous(true);
 $bee = new Insect('bee');
 $bee->setSize(2);
 
-$animals = [$elephant, $lion, $tiger, $zebra, $parrot, $alligator, $python, $scorpio, $tarentula, $bee];
+$animals = [$abstractAnimal, $elephant, $lion, $tiger, $zebra, $parrot, $alligator, $python, $scorpio, $tarentula, $bee];
 
 try {
     $jungle = new Jungle('jungle');
