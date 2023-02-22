@@ -7,7 +7,7 @@ use RangeException;
 use RuntimeException;
 use UnexpectedValueException;
 
-class Animal
+abstract class Animal
 {
     public const CENTIMETERS_IN_METER = 100;
     public const SIZE_UNIT_CHANGE_LIMIT = 100;
