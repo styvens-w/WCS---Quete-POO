@@ -159,8 +159,36 @@ main>.animals article {
     font-weight: bold;
 }
 
-#swimmable { 
+#swimmable, #flyable { 
     display: none;
+}
+
+#flyable:checked ~ .animals article::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45%;
+    height: 75%;
+    animation: fillLeft linear 0.2s ;
+    background: rgb(179,115,0);
+    background: linear-gradient(90deg, rgba(179,115,0,1) 0%, rgba(152,99,4,1) 25%, rgba(179,115,0,1) 54%, rgba(152,99,4,1) 82%);
+    border-top: 10px solid rgb(92, 176, 32);
+    border-top-left-radius: 10px;
+}
+
+#flyable:checked ~ .animals .animal-img {
+    width: 75px;
+    position: absolute;
+    bottom: 74%;
+    right: 38%;
+}
+
+#flyable:checked ~ .animals .fly {
+    animation: jump linear 1.5s 0.5s forwards, fly ease-in 1.5s 2s infinite alternate;
+}
+#flyable:checked ~ .animals .no-fly {
+    animation: jump linear 1.5s 0.5s forwards, nofly linear 1.5s 2s forwards;
 }
 
 #swimmable:checked ~ .animals article::after {
@@ -170,10 +198,9 @@ main>.animals article {
     left: 0;
     width: 100%;
     height: 75%;
-    background-color: rgba(0, 183, 255, 0.2);
+    background-color: var(--water);
     z-index: 1;
     animation: fill linear 1s ;
-
     --mask:
         radial-gradient(89.44px at 50% 120.00px, #000 99%, #0000 101%) calc(50% - 80px) 0/160px 100%,
         radial-gradient(89.44px at 50% -80px, #0000 99%, #000 101%) 50% 40px/160px 100% repeat-x;
@@ -195,6 +222,17 @@ main>.animals article {
     box-shadow: 0 0 6px 4px var(--light);
 }
 
+.can-swim {
+    color: rgba(0, 183, 255); 
+    font-weight: bold;
+    margin-block: 0.5rem;
+}
+.can-fly {
+    color: rgb(132, 0, 255); 
+    font-weight: bold;
+    margin-block: 0.5rem;
+}
+
 .swim-label {
     margin: var(--spacing2);
 }
@@ -207,13 +245,50 @@ main>.animals article {
         bottom: 0;
     }
 }
-
+@keyframes fillLeft {
+    0% {
+        width: 0%;
+    }
+    100%{
+        width: 45%;
+    }
+}
 @keyframes swim {
     0% {
         transform: translate(0, 0%);
     }
     100%{
         transform: translate(0, -20%);
+    }
+}
+@keyframes jump {
+    0% {
+        right: 60%;
+        bottom: 76%;
+    }
+    100%{
+        right: 60%;
+        bottom: 50%;
+    }
+}
+
+@keyframes fly {
+    0% {
+        bottom: 50%;
+    }
+    100%{
+        bottom: 55%;
+    }
+}
+
+@keyframes nofly {
+    0% {
+        bottom: 50%;
+        transform: rotate(0deg);
+    }
+    100%{
+        bottom: max(5%, 135px);
+        transform: rotate(180deg);
     }
 }
 

@@ -3,6 +3,8 @@
 <?php
 
 use App\Area\Area;
+use App\Flyable;
+use App\Swimmable;
 
 $areaType = $_GET['area'] ?? '';
 ?>
@@ -65,7 +67,7 @@ $areaType = $_GET['area'] ?? '';
             <?php endif; ?>
         </h2>
         <?php if (interface_exists(Swimmable::class)) : ?>
-            <input id="swimmable" type="checkbox">
+            <input id="swimmable" type="radio" name="interface">
             <label class="btn swim-label" for="swimmable">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-water" viewBox="0 0 16 16">
                     <path d="M.036 3.314a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 3.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 6.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 9.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65z" />
@@ -73,7 +75,14 @@ $areaType = $_GET['area'] ?? '';
                 Try to swim
             </label>
         <?php endif ?>
-
+        <?php if (interface_exists(Flyable::class)) : ?>
+            <input id="flyable" type="radio" name="interface">
+            <label class="btn swim-label" for="flyable">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                    <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z" />
+                </svg> Try to fly
+            </label>
+        <?php endif ?>
         <div class="animals">
             <?php if (isset(${$areaType}) && ${$areaType} instanceof Area && method_exists(${$areaType}, 'getAnimals')) : ?>
                 <?php if (method_exists(${$areaType}, 'isValid')) : ?>
@@ -96,6 +105,11 @@ $areaType = $_GET['area'] ?? '';
                             <div>
                                 <?= $reflection->isFinal() ? '🚫' : '' ?>
                                 <?= preg_replace('/.+\\\(.+)$/', '\1', get_class($animal)) ?>
+
+                                <?php if (class_implements($animal)) : ?>
+                                    <span>ℹ️</span>
+                                <?php endif; ?>
+
                             </div>
                             <?php foreach (class_parents($animal) ?? [] as $parent) : ?>
                                 <div>↓</div>
@@ -103,6 +117,10 @@ $areaType = $_GET['area'] ?? '';
                                     <?php $parentReflection = new ReflectionClass($parent); ?>
                                     <?= $parentReflection->isAbstract() ? '🎨' : '' ?>
                                     <?= preg_replace('/.+\\\(.+)$/', '\1', $parent) ?>
+
+                                    <?php if (class_implements($parent)) : ?>
+                                        <span>ℹ️</span>
+                                    <?php endif; ?>
                                 </div>
                             <?php endforeach; ?>
                         </div>
@@ -110,10 +128,16 @@ $areaType = $_GET['area'] ?? '';
                     <?php if (method_exists($animal, 'speak')) : ?>
                         <div class="hello">
                             <?= $animal->speak() ?>
+                            <?php if ($animal instanceof Swimmable && method_exists($animal, 'swim')) : ?>
+                                <p class="can-swim"><?= $animal->swim() ?></p>
+                            <?php endif; ?>
+                            <?php if ($animal instanceof Flyable && method_exists($animal, 'fly')) : ?>
+                                <p class="can-fly"><?= $animal->fly() ?></p>
+                            <?php endif; ?>
                         </div>
                     <?php endif; ?>
                     <div></div>
-                    <img class="animal-img <?= $animal instanceof Swimmable ? 'swim' : 'no-swim' ?>" width="<?= $animal->getSize() ?? 100 ?>%" src="assets/images/animals/<?= $animal->name ?? $animal->getName() ?? 'undefined' . $key % 3 ?>.png" alt="">
+                    <img class="animal-img <?= $animal instanceof Flyable ? 'fly' : 'no-fly' ?> <?= $animal instanceof Swimmable ? 'swim' : 'no-swim' ?>" width="<?= $animal->getSize() ?? 100 ?>%" src="assets/images/animals/<?= $animal->name ?? $animal->getName() ?? 'undefined' . $key % 3 ?>.png" alt="">
                     <div class="notice">
                         <div class="title">
                             <h1>

@@ -13,6 +13,7 @@
     --dark: #130706;
     --transparent-dark: #130706EE;
     --primary-light: #f1dad6;
+    --water: rgba(0, 183, 255, 0.4);
 }
 
 body {
@@ -77,7 +78,6 @@ header:hover h1 {
     100% {
         transform: rotateX(calc(var(--swing) * -1));
     }
-
 }
 
 h1,
