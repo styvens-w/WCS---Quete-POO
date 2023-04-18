@@ -1,10 +1,7 @@
 {
-<<<<<<< HEAD
     "name": "wildcodeschool/wildzoo",
     "description": "POO training for PHP students",
-=======
     "name": "sylvain/wildzoo",
->>>>>>> testMoves
     "autoload": {
         "psr-4": {
             "App\\": "src/"
