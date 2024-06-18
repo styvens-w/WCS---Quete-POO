@@ -2,18 +2,29 @@
 
 class Animal
 {
+    // CONSTANTS
+    public const int CENTIMETERS_IN_METER = 100;
+    public const int SIZE_UNIT_CHANGE_LIMIT = 100;
+    public const array THREATENED_LEVELS = ['NE', 'DD', 'LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX'];
+
+
+    // PROPERTIES
     private string $name;
     private float $size = 100;
     private bool $carnivorous = false;
     private int $pawNumber;
     private string $threatenedLevel = 'NE';
 
+
+    // CONSTRUCT
     public function __construct(string $name, int $pawNumber)
     {
         $this->name = $name;
         $this->setPawNumber($pawNumber);
     }
 
+
+    // GETTERS & SETTERS
     public function getName(): string
     {
         return $this->name;
@@ -53,7 +64,9 @@ class Animal
 
     public function setThreatenedLevel(string $threatenedLevel): void
     {
-        $this->threatenedLevel = $threatenedLevel;
+        if (in_array($threatenedLevel, self::THREATENED_LEVELS)) {
+            $this->threatenedLevel = $threatenedLevel;
+        }
     }
 
     public function isCarnivorous(): bool
@@ -66,6 +79,8 @@ class Animal
         $this->carnivorous = $carnivorous;
     }
 
+
+    // METHODS
     public function speak(string $lang = 'fr'): string
     {
         if ($lang === 'fr') {
@@ -80,5 +95,14 @@ class Animal
     public function isDangerous(): bool
     {
         return $this->size > 50 && $this->carnivorous === true;
+    }
+
+    public function getSizeWithUnit() :string
+    {
+        if($this->getSize() < self::SIZE_UNIT_CHANGE_LIMIT) {
+            return $this->getSize() . ' cm';
+        }
+
+        return ($this->getSize() / self::CENTIMETERS_IN_METER) . ' m';
     }
 }
