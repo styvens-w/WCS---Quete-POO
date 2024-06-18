@@ -31,4 +31,3 @@ $animals = [$lion, $parrot, $elephant];
 
 // Do not modify code below
 require 'view.php';
-?>
