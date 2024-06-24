@@ -4,13 +4,13 @@ namespace App;
 
 class Animal
 {
-    public const CENTIMETERS_IN_METER = 100;
-    public const SIZE_UNIT_CHANGE_LIMIT = 100;
-    public const THREATENED_LEVELS = ['NE', 'DD', 'LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX',];
+    public const int CENTIMETERS_IN_METER = 100;
+    public const int SIZE_UNIT_CHANGE_LIMIT = 100;
+    public const array THREATENED_LEVELS = ['NE', 'DD', 'LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX',];
     
-    private string $name;
+    protected string $name;
     private float $size = 100;
-    private bool $carnivorous = false;
+    protected bool $carnivorous = false;
     private int $pawNumber;
     private string $threatenedLevel = 'NE';
 
@@ -94,8 +94,8 @@ class Animal
     {
         if ($this->getSize() < self::SIZE_UNIT_CHANGE_LIMIT) {
             return $this->getSize() . 'cm';
-        } else {
-            return ($this->getSize() / self::CENTIMETERS_IN_METER) . 'm';
         }
+
+        return ($this->getSize() / self::CENTIMETERS_IN_METER) . 'm';
     }
 }
