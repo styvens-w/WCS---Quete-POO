@@ -1,4 +1,5 @@
 <?php
+namespace App;
 
 class Animal
 {
@@ -92,8 +93,8 @@ class Animal
     {
         if ($this->getSize() < self::SIZE_UNIT_CHANGE_LIMIT) {
             return $this->getSize() . 'cm';
-        } else {
-            return ($this->getSize() / self::CENTIMETERS_IN_METER) . 'm';
         }
+
+        return ($this->getSize() / self::CENTIMETERS_IN_METER) . 'm';
     }
 }
