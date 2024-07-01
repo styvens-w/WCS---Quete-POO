@@ -17,7 +17,14 @@ use App\Snake;
 use App\Spider;
 
 $elephant = new Mammal('elephant');
-$elephant->setThreatenedLevel('LC');
+try {
+    $elephant->setThreatenedLevel('LC');
+} catch (UnexpectedValueException $exception) {
+    $errors[]  = $exception->getMessage();
+} catch (RuntimeException $exception) {
+    $smallErrors[]  = $exception->getMessage();
+}
+
 $elephant->setSize(400);
 
 $lion = new Felid('lion');
