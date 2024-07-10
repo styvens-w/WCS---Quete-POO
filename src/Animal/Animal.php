@@ -7,7 +7,7 @@ use RangeException;
 use RuntimeException;
 use UnexpectedValueException;
 
-class Animal
+abstract class Animal
 {
     public const CENTIMETERS_IN_METER = 100;
     public const SIZE_UNIT_CHANGE_LIMIT = 100;
@@ -71,7 +71,7 @@ class Animal
             throw new UnexpectedValueException('La menace est incorrecte');
         }
 
-        if($threatenedLevel == 'EX') {
+        if($threatenedLevel === 'EX') {
             throw new RuntimeException('Le ' . $this->getName() . ' ne peut être là, cette espèce est éteinte');
         }
 
@@ -108,8 +108,8 @@ class Animal
     {
         if ($this->getSize() < self::SIZE_UNIT_CHANGE_LIMIT) {
             return $this->getSize() . 'cm';
-        } else {
-            return ($this->getSize() / self::CENTIMETERS_IN_METER) . 'm';
         }
+
+        return ($this->getSize() / self::CENTIMETERS_IN_METER) . 'm';
     }
 }
