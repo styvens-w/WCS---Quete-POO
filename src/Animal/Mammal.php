@@ -2,7 +2,9 @@
 
 namespace App\Animal;
 
-class Mammal extends Animal
+use App\Swimmable;
+
+class Mammal extends Animal implements Swimmable
 {
     private $pawNumber = 4;
 
@@ -11,8 +13,9 @@ class Mammal extends Animal
         parent::__construct($name, $this->pawNumber);
     }
 
-    public function speak(string $lang = 'fr'): string
+    #[\Override] public function speak(string $lang = 'fr'): string
     {
+        parent::speak($lang);
         if ($lang === 'fr') {
             $message = 'Bienvenue humain, moi aussi je suis un mammifère et mon nom est ';
         } else {
@@ -20,5 +23,10 @@ class Mammal extends Animal
         }
 
         return $message . $this->name;
+    }
+
+    public function swim(): string
+    {
+        return 'Je nage grâce à mes poumons et en remuant les pates';
     }
 }

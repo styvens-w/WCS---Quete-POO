@@ -2,7 +2,7 @@
 
 namespace App\Animal;
 
-class Bird extends Animal
+abstract class Bird extends Animal
 {
     private int $pawNumber = 2;
     

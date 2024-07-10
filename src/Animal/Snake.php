@@ -2,7 +2,9 @@
 
 namespace App\Animal;
 
-final class Snake extends Reptile
+use App\Swimmable;
+
+final class Snake extends Reptile implements Swimmable
 {
     private int $pawNumber = 0;
     protected bool $carnivorous = true;
@@ -10,5 +12,10 @@ final class Snake extends Reptile
     public function __construct(string $name)
     {
         parent::__construct($name, $this->pawNumber);
+    }
+
+    public function swim(): string
+    {
+        return 'Je nage grâce à l\'ondulation latérale';
     }
 }

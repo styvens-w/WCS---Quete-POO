@@ -25,7 +25,10 @@ abstract class Area
         return $this->animals;
     }
 
-    public function addAnimal(Animal $animal)
+    /**
+     * @throws Exception
+     */
+    public function addAnimal(Animal $animal): void
     {
         if (!$this->isValid($animal)) {
 
